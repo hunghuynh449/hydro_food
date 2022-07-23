@@ -15,16 +15,16 @@ import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
 import userSlice from "./userSlice";
 
-const persistConfig = {
-  key: "hydro-food",
-  storage,
-  blacklist: ["cartUi"],
-};
-
 // const persistConfig = {
 //   key: "hydro-food",
 //   storage,
+//   blacklist: ["cartUi"],
 // };
+
+const persistConfig = {
+  key: "hydro-food",
+  storage,
+};
 
 const rootReducer = combineReducers({
   cart: cartSlice.reducer,
