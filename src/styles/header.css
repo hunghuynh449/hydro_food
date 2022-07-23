@@ -1,0 +1,188 @@
+.header {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 0.6rem;
+  line-height: 80px;
+  position: relative;
+}
+
+.notice {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 30px;
+  background-color: rgb(155, 255, 152);
+  border: 1px solid rgb(0, 255, 0);
+  transition: 2s;
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.notice p {
+  padding: 0;
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  line-height: 1rem;
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo img {
+  width: calc(100% - 60%);
+  object-fit: contain;
+}
+
+.logo h5 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #212245;
+  margin-top: -10px;
+  margin-bottom: 0;
+}
+
+.menu a {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #212245;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #df2020;
+}
+
+.active__menu {
+  color: #df2020 !important;
+}
+
+.user p {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cart__icon i,
+.user i,
+.mobile__menu i {
+  font-size: 1.3rem;
+  color: #212245;
+  cursor: pointer;
+}
+
+.cart__icon {
+  position: relative;
+}
+
+.cart__badge {
+  position: absolute;
+  top: 20px;
+  right: -10px;
+  background: #df2020;
+  color: #fff;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile__menu {
+  font-weight: 600;
+  display: none;
+}
+
+.header__shrink {
+  position: sticky;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 99;
+  box-shadow: 5px 5px 15px -5px #fde4e4;
+}
+
+@media only screen and (max-width: 992px) {
+  .logo img {
+    width: calc(100% - 70%);
+  }
+
+  .logo h5 {
+    font-size: 0.8rem;
+    margin-top: -15px;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.425);
+    z-index: 99;
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    background: #fff;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    line-height: 20px;
+  }
+
+  .menu a {
+    font-size: 0.9rem;
+  }
+
+  .mobile__menu {
+    display: block;
+  }
+
+  .cart__icon i,
+  .user i,
+  .mobile__menu i {
+    font-size: 1rem;
+  }
+
+  .show__menu {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+  }
+
+  .logo a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .logo img {
+    width: calc(100% - 80%);
+  }
+
+  .logo h5 {
+    margin-top: 0;
+  }
+}
