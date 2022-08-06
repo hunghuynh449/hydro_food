@@ -5,12 +5,25 @@ import { Container, Row, Col } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userActions } from "../store/userSlice";
+import { signInWithGoogle } from "../firebase/configFirebase";
 
 const Login = () => {
   const loginNameRef = useRef();
   const loginPasswordRef = useRef();
 
   const dispatch = useDispatch();
+
+  const loginGoogle = async () => {
+    const rs = await signInWithGoogle();
+    const info = rs.user.providerData[0];
+
+    console.log(info);
+    const state = {
+      id: info.uid,
+      email: info.email,
+    };
+    dispatch(userActions.loginGG(state));
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -49,6 +62,11 @@ const Login = () => {
                   Đăng nhập
                 </button>
               </form>
+              <div className="login_another">
+                <button type="" onClick={loginGoogle} className="login_gg">
+                  Đăng nhập bằng Google
+                </button>
+              </div>
               <Link to="/register">Chưa có tài khoản? Tạo tài khoản</Link>
             </Col>
           </Row>
