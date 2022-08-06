@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/shopping-cart/cartSlice";
 
-const ProductCard = ({ item }) => {
+const ProductCard = ({ item, currency }) => {
   const { id, title, image01, price } = item;
   const dispatch = useDispatch();
 
@@ -32,7 +32,9 @@ const ProductCard = ({ item }) => {
           <Link to={`/foods/${id}`}>{title}</Link>
         </h5>
         <div className="d-flex align-items-center justify-content-between">
-          <span className="product__price">${price}</span>
+          <span className="product__price">
+            {currency ? `${price * 23000} VND` : `$ ${price}`}
+          </span>
           <button className="addToCart__btn" onClick={addToCart}>
             Thêm vào giỏ
           </button>

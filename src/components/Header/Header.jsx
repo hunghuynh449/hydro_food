@@ -9,6 +9,7 @@ import { cartUiActions } from "../../store/shopping-cart/cartUiSlice";
 import "../../styles/header.css";
 import { userActions } from "../../store/userSlice";
 import { useNavigate } from "react-router-dom";
+import { currencyActions } from "../../store/currencySlice";
 
 const nav__links = [
   {
@@ -27,12 +28,16 @@ const nav__links = [
     display: "Liên hệ",
     path: "/contact",
   },
+  {
+    display: "Báo cáo",
+    path: "/report",
+  },
 ];
 
 const Notice = ({ content, ref }) => {
   const noticeRef = useRef(null);
   console.log(noticeRef);
-  noticeRef !== null &&
+  noticeRef &&
     setTimeout(() => {
       noticeRef.current.classList.add("hidden");
       // noticeRef.current.classList.remove("notice");
@@ -49,6 +54,7 @@ const Header = () => {
   const headerRef = useRef(null);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
   const user = useSelector((state) => state.user);
+  const {VND} = useSelector((state) => state.currency);
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
@@ -56,6 +62,10 @@ const Header = () => {
 
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
+  };
+
+  const toggleCurrency = () => {
+    dispatch(currencyActions.toggle());
   };
 
   const logout = () => {
@@ -113,6 +123,12 @@ const Header = () => {
           {/* === Nav-right-icons === */}
 
           <div className="nav__right d-flex align-items-center gap-4">
+            <span className="currency" onClick={toggleCurrency}>
+              Đơn vị tiền tệ: 
+                  {
+                    VND ? " VND" : " USD"
+                  }
+            </span>
             <span className="cart__icon" onClick={toggleCart}>
               <i className="ri-shopping-basket-line"></i>
               <span className="cart__badge">{totalQuantity}</span>

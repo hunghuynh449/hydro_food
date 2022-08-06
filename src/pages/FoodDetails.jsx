@@ -6,7 +6,7 @@ import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/Common-section/CommonSection";
 import { Container, Row, Col } from "reactstrap";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../store/shopping-cart/cartSlice";
 
 import "../styles/product-details.css";
@@ -29,6 +29,8 @@ const FoodDetails = () => {
   const [comment, setComment] = useState(commentList);
   const { id } = useParams();
   const dispatch = useDispatch();
+  const {VND} = useSelector(state => state.currency)
+
 
   const product = products.find((product) => product.id === id);
   const [previewImg, setPreviewImg] = useState(product.image01);
@@ -105,7 +107,7 @@ const FoodDetails = () => {
               <div className="single__product-content">
                 <h2 className="product__title mb-3">{title}</h2>
                 <p className="product__price">
-                  Giá: <span>${price}</span>
+                  Giá: <span>{ VND ? `${price * 23000} VND` : `$ ${price}`}</span>
                 </p>
                 <p className="category mb-5">
                   Loại: <span>{category}</span>
@@ -181,7 +183,7 @@ const FoodDetails = () => {
 
             {relatedProduct.map((item) => (
               <Col lg="3" md="4" sm="6" xs="6" className="mb-4" key={item.id}>
-                <ProductCard item={item} />
+                <ProductCard item={item} currency={VND} />
               </Col>
             ))}
           </Row>

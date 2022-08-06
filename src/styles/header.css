@@ -81,6 +81,10 @@
   position: relative;
 }
 
+.currency{
+  cursor: pointer;
+}
+
 .cart__badge {
   position: absolute;
   top: 20px;

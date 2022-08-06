@@ -1,0 +1,21 @@
+p{
+    font-size: 1.2rem;
+    margin-bottom: 0 !important;
+}
+
+ul li {
+    font-size: 1.2rem;
+}
+
+.highlight{
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.field{
+    margin-bottom: 0.5rem;
+}
+
+.field a{
+    color: rgb(0, 125, 241) !important;
+}
