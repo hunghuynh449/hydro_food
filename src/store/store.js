@@ -1,10 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import cartSlice from "./shopping-cart/cartSlice";
 import cartUiSlice from "./shopping-cart/cartUiSlice";
-import {
-  persistReducer,
-  persistStore,
-} from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { combineReducers } from "@reduxjs/toolkit";
 import userSlice from "./userSlice";

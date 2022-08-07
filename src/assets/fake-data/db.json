@@ -179,26 +179,6 @@
       "image03": "https://res.cloudinary.com/hydrocloudinary/image/upload/v1658062564/hydrofood/duiga_zugxon.png",
       "category": "Chicken",
       "desc": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque."
-    },
-    {
-      "title": "Bánh bèo",
-      "price": "3",
-      "category": "Bánh",
-      "image01": "",
-      "image02": "",
-      "image03": "",
-      "desc": "",
-      "id": "mpYYkzb"
-    },
-    {
-      "title": "Bánh bò",
-      "price": "2",
-      "category": "Bánh",
-      "image01": "",
-      "image02": "",
-      "image03": "",
-      "desc": "",
-      "id": "q1KvBaX"
     }
   ]
 }

@@ -8,7 +8,7 @@ const userList = [
 
 const userSlice = createSlice({
   name: "user",
-  initialState: { name: "", password: "", auth: false, response: "" },
+  initialState: { ggID: "", name: "", password: "", auth: false, response: "" },
 
   reducers: {
     login(state, action) {
@@ -27,9 +27,17 @@ const userSlice = createSlice({
         state.response = "Sai tên đăng nhập hoặc mật khẩu";
       }
     },
+    loginGG(state, action) {
+      state.ggID = action.payload.id;
+      state.email = action.payload.email;
+      state.name = action.payload.name;
+      state.auth = true;
+      state.response = "Đăng nhập thành công!";
+    },
     logout(state) {
       state.name = "";
       state.password = "";
+      state.ggID = "";
       state.auth = false;
       state.response = "Đăng xuất thành công!";
     },
