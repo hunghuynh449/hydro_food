@@ -3,6 +3,7 @@ import { foodAPI } from "../api/foodAPI";
 
 const initialState = {
   foodList: [],
+  foodDetail: undefined
 };
 
 export const fetchFoods = createAsyncThunk(
@@ -14,12 +15,40 @@ export const fetchFoods = createAsyncThunk(
   }
 );
 
+export const fetchFoodDetail = createAsyncThunk(
+  "food/getItemDetail",
+  async (id) => {
+    const response = await foodAPI.getFoodDetail(id);
+    const data = await response.json();
+    return data;
+  }
+);
+
 export const addFoods = createAsyncThunk(
   "food/addItem",
   async (payload) => {
     const response = await foodAPI.addFood(payload);
-    console.log(response);
     return response;
+  }
+);
+
+export const updateFood = createAsyncThunk(
+  "food/updateFood",
+  async (payload) => {
+    const response = await foodAPI.updateFood(payload);
+    const data = await response.json();
+    return data;
+  }
+);
+
+export const deleteFood = createAsyncThunk(
+  "food/deleteFood",
+  async (id) => {
+    console.log(id);
+    const response = await foodAPI.deleteFood(id);
+    console.log(response);
+    const data = await response.json();
+    return data;
   }
 );
 
@@ -28,7 +57,6 @@ const foodSlice = createSlice({
   initialState: initialState,
 
   reducers: {
-
     deleteItem(state, action) {
       const id = action.payload;
       state.foodList = state.foodList.filter((item) => item.id !== id);
@@ -38,8 +66,14 @@ const foodSlice = createSlice({
     [fetchFoods.fulfilled.type]: (state, action) => {
       state.foodList = action.payload;
     },
-    [addFoods.fulfilled.type]: (state, action) => {
-      console.log(action);
+    [fetchFoodDetail.fulfilled.type]: (state, action) => {
+      state.foodDetail = action.payload;
+    },
+    [addFoods.fulfilled.type]: (_, action) => {
+    },
+    [updateFood.fulfilled.type]: (_, action) => {
+    },
+    [deleteFood.fulfilled.type]: (_, action) => {
     },
   },
 });

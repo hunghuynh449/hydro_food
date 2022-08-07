@@ -21,6 +21,7 @@ const Login = () => {
     const state = {
       id: info.uid,
       email: info.email,
+      name: info.displayName
     };
     dispatch(userActions.loginGG(state));
   };

@@ -375,8 +375,8 @@ textarea.form-control {
     font-size: 2rem;
 }
 
-.modal{
-    display: none;
+.modal-admin{
+    /* display: none; */
     position: fixed;
     left: 0;
     top: 0;
@@ -386,7 +386,7 @@ textarea.form-control {
     background: linear-gradient(rgba(0,0,0,.8),rgba(0,0,0,.8));
 }
 
-.modal i {
+.modal-admin i {
     position: absolute;
     right: 0;
     font-size: 3rem;
@@ -395,7 +395,11 @@ textarea.form-control {
     cursor: pointer;
 }
 
-.modal .btnUpdate{
+.modal-admin .card-admin {
+    width: 30%;
+}
+
+.modal-admin .btnUpdate{
     background: rgb(0, 189, 47);
 }
 

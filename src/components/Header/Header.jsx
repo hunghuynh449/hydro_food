@@ -32,11 +32,14 @@ const nav__links = [
     display: "Báo cáo",
     path: "/report",
   },
+  {
+    display: "Admin",
+    path: "/admin",
+  },
 ];
 
 const Notice = ({ content, ref }) => {
   const noticeRef = useRef(null);
-  console.log(noticeRef);
   noticeRef &&
     setTimeout(() => {
       noticeRef.current.classList.add("hidden");

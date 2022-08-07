@@ -28,8 +28,9 @@ const userSlice = createSlice({
       }
     },
     loginGG(state, action) {
-      state.ggID = action.id;
-      state.email = action.email;
+      state.ggID = action.payload.id;
+      state.email = action.payload.email;
+      state.name = action.payload.name;
       state.auth = true;
       state.response = "Đăng nhập thành công!";
     },
